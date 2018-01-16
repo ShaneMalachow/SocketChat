@@ -1,0 +1,23 @@
+//
+   Created by shanemalachow on 7/9/17.
+
+doctype HTML
+html
+    head
+        title Socket.io Chat
+        link(rel='stylesheet' href='stylesheets/style.css')
+    body
+        ul(id='messages')
+            each message in messages
+                if message.name
+                    li= message.name + ': ' + message.text
+                else
+                    li(style="background:lightblue; font-style: italic;")= message.text
+
+        input(id="m" type="text" autocomplete="off" placeholder="Type message")
+        div(id="login-screen")
+            input(id="username" type="text" autocomplete="off" placeholder="Enter username to login" maxlength="32")
+
+        script(src="/socket.io/socket.io.js")
+        script(src="https://code.jquery.com/jquery-3.2.1.min.js")
+        script(src="javascripts/client.js")
